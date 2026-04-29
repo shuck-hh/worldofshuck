@@ -2,16 +2,49 @@
     background-color: black;
     color: white;
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background-image: radial-gradient(circle at 1px 1px, rgba(255, 255, 255, .25) 1px, transparent 0);
+}
+
+.landing h1 {
+    font-size: 100px;
+}
+
+.landing p {
+    font-size: 30px;
+}
+
+a {
+    color: white;
+    text-decoration: none;
+}
+
+header {
+    background-color: rgb(28, 27, 27);
+    border-bottom-left-radius: 30px;
+    border-bottom-right-radius: 30px;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    position: fixed;
+    z-index: 10;
+    width: 200vh;
+    justify-self: center;
+}
+
+body {
+    margin: 0;
+    padding: 0;
 }
 
 .landing {
     height: 99vh;
     display: flex;
+    flex-direction: column;
     justify-content: center;
     align-items: center;
 }
 
-.landing h1, p {
+.fadingIn {
     opacity: 0;
     animation: fadeIn 1s ease-in forwards;
 }
@@ -20,4 +53,148 @@
     to {
         opacity: 1;
     }
+}
+
+.about .img {
+    background-color: rgb(39, 38, 38);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 30px;
+    margin: 18px;
+}
+
+.textbox {
+    display: flex;
+    align-items: center;
+    width: 99%;
+    height: 99%;
+}
+
+.about .text {
+    background-color: rgb(39, 38, 38);
+    border-radius: 30px;
+    padding: 10px;
+    margin: 18px;
+}
+
+
+/* From Uiverse.io by vinodjangid07 */ 
+.Btn {
+  border: none;
+  border-radius: 50%;
+  width: 45px;
+  height: 45px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition-duration: .4s;
+  cursor: pointer;
+  position: relative;
+  background-color: rgb(31, 31, 31);
+  overflow: hidden;
+}
+
+.Btn .svgIcon {
+  transition-duration: .3s;
+}
+
+.Btn .svgIcon path {
+  fill: white;
+}
+
+.Btn .text {
+  position: absolute;
+  color: rgb(255, 255, 255);
+  width: 120px;
+  font-weight: 600;
+  opacity: 0;
+  transition-duration: .4s;
+}
+
+.Btn:hover {
+  width: 110px;
+  transition-duration: .4s;
+  border-radius: 30px;
+}
+
+.Btn:hover .text {
+  opacity: 1;
+  transition-duration: .4s;
+}
+
+.Btn:hover .svgIcon {
+  opacity: 0;
+  transition-duration: .3s;
+}
+
+/* From Uiverse.io by andrew-demchenk0 */ 
+.card {
+  --font-color: #323232;
+  --bg-color: #e0e0e0;
+  width: 250px;
+  height: 350px;
+  border-radius: 20px;
+  background: var(--bg-color);
+  box-shadow: -9px 9px 18px #5a5a5a,
+              9px -9px 18px #ffffff;
+  display: flex;
+  flex-direction: column;
+  transition: .4s;
+  position: relative;
+}
+
+.card:hover {
+  transform: scale(1.02);
+  box-shadow: 0px 0px 10px 2px #5a5a5a;
+}
+
+.card__img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-radius: 20px 20px 0 0;
+  background-color: blueviolet;
+}
+
+.card__descr-wrapper {
+  padding: 15px;
+  display: grid;
+}
+
+.card__title {
+  color: var(--font-color);
+  text-align: center;
+  margin-bottom: 15px;
+  font-weight: 900;
+  font-size: 16px;
+}
+
+.card__descr {
+  color: var(--font-color);
+}
+
+.svg {
+  width: 25px;
+  height: 25px;
+  transform: translateY(25%);
+  fill: var(--font-color);
+}
+
+.card__links {
+  margin-top: 10px;
+  display: flex;
+  justify-content: space-between;
+  align-self: flex-end;
+}
+
+.card__links .link {
+  color: var(--font-color);
+  font-weight: 600;
+  font-size: 15px;
+  text-decoration: none;
+}
+
+.card__links .link:hover {
+  text-decoration: underline;
 }
