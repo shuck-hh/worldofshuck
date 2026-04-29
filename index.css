@@ -1,52 +1,88 @@
 :root {
-    background-color: black;
-    color: white;
+    /* Colors */
+    --bg-main: #000;
+    --bg-secondary: #202020;
+    --bg-tertiary: #272626;
+    --text-main: #fff;
+
+    /* Sizes */
+    --radius: 20px;
+    --radius-lg: 30px;
+
+    /* Shadows */
+    --shadow-soft: 0 8px 20px rgba(0, 0, 0, 0.4);
+    --shadow-hover: 0 12px 25px rgba(0, 0, 0, 0.6);
+
+    /* Font */
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-    background-image: radial-gradient(circle at 1px 1px, rgba(255, 255, 255, .25) 1px, transparent 0);
+
+    /* Background */
+    background-color: var(--bg-main);
+    color: var(--text-main);
+    background-image: radial-gradient(circle at 1px 1px, rgba(255, 255, 255, 0.25) 1px, transparent 0);
+    background-size: 20px 20px;
 }
 
-.landing h1 {
-    font-size: 100px;
-}
-
-.landing p {
-    font-size: 30px;
-}
-
-a {
-    color: white;
-    text-decoration: none;
-}
-
-header {
-    background-color: rgb(28, 27, 27);
-    border-bottom-left-radius: 30px;
-    border-bottom-right-radius: 30px;
-    display: flex;
-    justify-content: space-around;
-    align-items: center;
-    position: fixed;
-    z-index: 10;
-    width: 200vh;
-    justify-self: center;
-}
-
+/* Reset */
 body {
     margin: 0;
     padding: 0;
 }
 
-.landing {
-    height: 99vh;
+/* Utilities */
+.flex-center {
     display: flex;
-    flex-direction: column;
     justify-content: center;
     align-items: center;
 }
 
+/* Header */
+header {
+    position: fixed;
+    z-index: 10;
+    width: 100%;
+    max-width: 1200px;
+    left: 50%;
+    transform: translateX(-50%);
+
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+
+    background-color: #1c1b1b;
+    border-bottom-left-radius: var(--radius-lg);
+    border-bottom-right-radius: var(--radius-lg);
+}
+
+a {
+    color: var(--text-main);
+    text-decoration: none;
+}
+
+/* Landing Section */
+.landing {
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    justify-content: center;
+    align-items: center;
+}
+
+.landing h1 {
+    font-size: clamp(2.5rem, 8vw, 6rem);
+    margin: 0;
+}
+
+.landing p {
+    font-size: clamp(1rem, 2.5vw, 1.8rem);
+    margin: 0;
+}
+
+/* animation */
 .fadingIn {
     opacity: 0;
-    animation: fadeIn 1s ease-in forwards;
+    animation: fadeIn 1s ease forwards;
 }
 
 @keyframes fadeIn {
@@ -55,48 +91,52 @@ body {
     }
 }
 
-.about .img {
-    background-color: rgb(39, 38, 38);
+/* About Section */
+.about-img,
+.about-text {
+    background-color: var(--bg-tertiary);
+    border-radius: var(--radius-lg);
+    margin: 18px;
+}
+
+.about-img {
     display: flex;
     justify-content: center;
     align-items: center;
-    border-radius: 30px;
-    margin: 18px;
+}
+
+.about-text {
+    padding: 10px;
 }
 
 .textbox {
+    width: 100%;
+    height: 100%;
     display: flex;
     align-items: center;
-    width: 99%;
-    height: 99%;
 }
 
-.about .text {
-    background-color: rgb(39, 38, 38);
-    border-radius: 30px;
-    padding: 10px;
-    margin: 18px;
-}
-
-
-/* From Uiverse.io by vinodjangid07 */
+/* Button */
 .Btn {
     border: none;
     border-radius: 50%;
     width: 45px;
     height: 45px;
+
     display: flex;
-    align-items: center;
     justify-content: center;
-    transition-duration: .4s;
+    align-items: center;
+
     cursor: pointer;
     position: relative;
-    background-color: rgb(31, 31, 31);
     overflow: hidden;
+
+    background-color: #1f1f1f;
+    transition: all 0.4s ease;
 }
 
 .Btn .svgIcon {
-    transition-duration: .3s;
+    transition: opacity 0.3s;
 }
 
 .Btn .svgIcon path {
@@ -105,103 +145,100 @@ body {
 
 .Btn .text {
     position: absolute;
-    color: rgb(255, 255, 255);
     width: 120px;
     font-weight: 600;
     opacity: 0;
-    transition-duration: .4s;
+    color: #fff;
+    transition: opacity 0.4s;
 }
 
 .Btn:hover {
     width: 110px;
-    transition-duration: .4s;
-    border-radius: 30px;
+    border-radius: var(--radius-lg);
 }
 
 .Btn:hover .text {
     opacity: 1;
-    transition-duration: .4s;
 }
 
 .Btn:hover .svgIcon {
     opacity: 0;
-    transition-duration: .3s;
 }
 
+/* Projects */
 #projects {
     display: flex;
     flex-wrap: wrap;
     gap: 20px;
+    justify-content: center;
 }
 
-/* From Uiverse.io by andrew-demchenk0 */
+/* Card */
 .card {
-    --font-color: rgb(232, 232, 232);
-    --bg-color: rgb(32, 32, 32);
     width: 250px;
     height: 350px;
-    border-radius: 20px;
-    background: var(--bg-color);
-    box-shadow: -9px 9px 18px #5a5a5a,
-        9px -9px 18px #323232;
+
+    background: var(--bg-secondary);
+    border-radius: var(--radius);
+
     display: flex;
     flex-direction: column;
-    transition: .4s;
     position: relative;
+
     margin: 18px;
+    box-shadow: var(--shadow-soft);
+    transition: transform 0.4s ease, box-shadow 0.4s ease;
 }
 
 .card:hover {
     transform: scale(1.02);
-    box-shadow: 0px 0px 10px 2px #5a5a5a;
+    box-shadow: var(--shadow-hover);
 }
 
 .card__img {
     width: 100%;
-    height: 100%;
+    height: 60%;
     object-fit: cover;
-    border-radius: 20px 20px 0 0;
+    border-radius: var(--radius) var(--radius) 0 0;
     background-color: blueviolet;
 }
 
 .card__descr-wrapper {
     padding: 15px;
-    display: grid;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
 }
 
 .card__title {
-    color: var(--font-color);
     text-align: center;
-    margin-bottom: 15px;
     font-weight: 900;
     font-size: 16px;
 }
 
 .card__descr {
-    color: var(--font-color);
-}
-
-.svg {
-    width: 25px;
-    height: 25px;
-    transform: translateY(25%);
-    fill: var(--font-color);
+    font-size: 14px;
 }
 
 .card__links {
-    margin-top: 10px;
+    margin-top: auto;
     display: flex;
     justify-content: space-between;
-    align-self: flex-end;
 }
 
 .card__links .link {
-    color: var(--font-color);
     font-weight: 600;
     font-size: 15px;
-    text-decoration: none;
 }
 
 .card__links .link:hover {
     text-decoration: underline;
+}
+
+/* Icons */
+.svg {
+    width: 25px;
+    height: 25px;
+    transform: translateY(25%);
+    fill: var(--text-main);
 }
